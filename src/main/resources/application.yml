@@ -11,28 +11,9 @@ spring:
   servlet:
     multipart:
       max-file-size: 1MB
-  thymeleaf:
-    # 开启MVC Thymeleaf视图解析（默认值：true）
-    enabled: true
-    # 模板编码
-    encoding: utf-8
-    # 开启模板缓存（默认值：true）,强烈建议，开发模式下不开启缓存
-    cache: false
-    # 在渲染之前检查模板是否存在
-    check-template: true
-    # 检查模板位置是否正确（默认值:true）
-    check-template-location: true
-    # Content-Type的值（默认值：text/html）
-    servlet:
-      content-type: text/html
-    # 要运用于模板之上的模板模式。另见StandardTemplate-ModeHandlers(默认值：HTML5)
-    mode: HTML
-    # 在构建URL时添加到视图名称前的前缀（默认值：classpath:/templates/）,后缀(默认值.html)
-    prefix: classpath:/templates
-    suffix: .html
 
   datasource:
-    name: activiti_wf
+    name: activiti
     url: jdbc:mysql://10.4.1.204:3306/activiti?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
     username: root
     password: root123
@@ -92,4 +73,9 @@ contentstorage:
   createRoot: true
   depth: 4
   blockSize: 1024
+
+
+
+
+
 

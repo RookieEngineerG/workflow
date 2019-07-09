@@ -57,6 +57,11 @@
     </dependencyManagement>
     
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- spring 监控 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -146,12 +151,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- thymeleaf -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -159,6 +158,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--如果没有该项配置，devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork>
+                </configuration>
             </plugin>
 
             <plugin>

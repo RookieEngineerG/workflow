@@ -1,5 +1,10 @@
 package com.hitotek.workflow;
 
+import com.hitotek.workflow.model.Data;
+import com.hitotek.workflow.model.multipart.MultipartData;
+import com.hitotek.workflow.po.ProcessReq;
+import com.hitotek.workflow.service.BaseService;
+import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
@@ -15,14 +20,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.parameters.P;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class WorkflowApplicationTests {
-    private static final Logger log = LoggerFactory.getLogger(WorkflowApplicationTests.class);
+//    private static final Logger log = LoggerFactory.getLogger(WorkflowApplicationTests.class);
 
 
     @Autowired
@@ -33,6 +42,8 @@ public class WorkflowApplicationTests {
     private TaskService taskService;
     @Autowired
     private RuntimeService runtimeService;
+    @Autowired
+    private BaseService baseService;
 
 
     @Test
@@ -119,5 +130,7 @@ public class WorkflowApplicationTests {
 
         log.info("结束我们的程序");
     }
+
+
 
 }
