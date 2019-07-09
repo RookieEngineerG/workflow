@@ -1,4 +1,4 @@
-package com.htvistion.workflow;
+package com.hitotek.workflow;
 
 import org.activiti.app.conf.ApplicationConfiguration;
 import org.activiti.app.servlet.ApiDispatcherServletConfiguration;
@@ -26,7 +26,7 @@ import java.util.EnumSet;
 })
 @Import({ApplicationConfiguration.class})
 
-@ComponentScan("com.htvistion.workflow.*.**") // 扫描组件，纳入spring容器，这行必须要有
+@ComponentScan("com.hitotek.workflow.*.**") // 扫描组件，纳入spring容器，这行必须要有
 public class WorkflowApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
