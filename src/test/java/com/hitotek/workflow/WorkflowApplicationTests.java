@@ -1,9 +1,5 @@
 package com.hitotek.workflow;
 
-import com.hitotek.workflow.model.Data;
-import com.hitotek.workflow.model.multipart.MultipartData;
-import com.hitotek.workflow.po.ProcessReq;
-import com.hitotek.workflow.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
@@ -13,19 +9,16 @@ import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentQuery;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.runtime.ProcessInstanceQuery;
 import org.activiti.engine.task.Task;
+import org.activiti.engine.task.TaskQuery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.parameters.P;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -42,8 +35,6 @@ public class WorkflowApplicationTests {
     private TaskService taskService;
     @Autowired
     private RuntimeService runtimeService;
-    @Autowired
-    private BaseService baseService;
 
 
     @Test
@@ -132,5 +123,19 @@ public class WorkflowApplicationTests {
     }
 
 
+    @Test
+    public void testTask () {
+        TaskQuery taskQuery = taskService.createTaskQuery();
+        List<Task> tasks = taskQuery.list();
+        for (Task task : tasks) {
+            log.info(task.getProcessDefinitionId());
+        }
+        ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
+        List<ProcessInstance> processInstances = processInstanceQuery.list();
+        for (ProcessInstance processInstance : processInstances) {
+            log.info(processInstance.getProcessDefinitionId());
+        }
+
+    }
 
 }
