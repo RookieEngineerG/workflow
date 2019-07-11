@@ -13,5 +13,3 @@
 
 ## activiti-boot2相关maven包（解压后放到本地maven仓库即可）
 - [百度网盘：密码 gm6g](https://pan.baidu.com/s/1jthmOhiuTPQiZFf7V8m5Zg)
-
-# 鸣谢作者dingziyang
